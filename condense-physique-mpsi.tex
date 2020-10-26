@@ -1,0 +1,47 @@
+% Basic stuff
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={6.5in, 9.5in}]{geometry}
+\usepackage[bookmarks, hidelinks, unicode]{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{lmodern}
+\usepackage{soul}
+
+% Packages configuration
+\usetikzlibrary{shapes.arrows, angles, quotes}
+\renewcommand{\arraystretch}{1.4}
+
+% Shortuct commands
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\const}{\text{const}}
+
+% Document
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+		\textit{\today}
+		\vfill
+		\textbf{\LARGE{Condensé de la MPSI}\\\Large{Physique}}\\
+		\vfill
+		\large{Ewen Le Bihan\\MPSI -- Daudet}
+	\end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Circuits}
+\subsection{Concention récepteur/générateur}
+\begin{circuitikz}
+	\draw (-1, 0)
+		to[short, i=$I$]
+		to[generic]
+	(1, 0);
+	\draw[<-] (-0.25, -0.5) -- (0.75, -0.5);
+\end{circuitikz}
+
+\end{document}

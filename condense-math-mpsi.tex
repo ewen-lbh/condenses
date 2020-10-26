@@ -1,0 +1,629 @@
+% Basic stuff
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={6.5in, 9.5in}]{geometry}
+\usepackage[bookmarks, hidelinks, unicode]{hyperref}
+\usepackage[]{amsmath,amssymb}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{soul}
+\usepackage{float}
+
+% Packages configuration
+\usetikzlibrary{shapes.arrows, angles, quotes}
+\renewcommand{\arraystretch}{1.4}
+\restylefloat{table}
+
+% Shortcut commands
+\newcommand{\im}{\text{Im}\,}
+\newcommand{\re}{\text{Re}\,}
+\newcommand{\img}{\text{Img}\,}
+\newcommand{\R}{{\mathbb R}}
+\renewcommand{\C}{{\mathbb C}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Q}{{\mathbb Q}}
+\renewcommand{\U}{{\mathbb U}}
+\newcommand{\cotan}{\operatorname{cotan}}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\Aff}{\text{Aff}}
+\newcommand{\twoRows}[1]{\multirow{2}{*}{#1}}
+\newcommand{\threeRows}[1]{\multirow{3}{*}{#1}}
+\newcommand{\twoCols}[1]{\multicolumn{2}{c|}{#1}}
+\newcommand{\threeCols}[1]{\multicolumn{3}{|c|}{#1}}
+\newcommand{\twoColsNB}[1]{\multicolumn{2}{c}{#1}}
+\newcommand{\goesto}[2]{\xrightarrow[#1\:\to\:#2]{}}
+\newcommand{\liminfty}{\lim_{x\to+\infty}}
+\newcommand{\limminfty}{\lim_{x\to-\infty}}
+\newcommand{\limzero}{\lim_{x\to0}}
+\newcommand{ \const}{\text{cste}}
+\newcommand{\et}{\:\text{et}\:}
+\newcommand{\ou}{\:\text{ou}\:}
+\newcommand{\placeholder}{\diamond}
+\newcommand{\mediateur}{\:\text{med}\:}
+\newcommand{\milieu}{\:\text{mil}\:}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\point}[2]{(#1;\;#2)}
+\newcommand{\spacepoint}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\newcommand{\sh}{\operatorname{sh}}
+\newcommand{\ch}{\operatorname{ch}}
+\renewcommand{\th}{\operatorname{th}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\cong}{\equiv}
+
+% Document
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+		\textit{\today}
+		\vfill
+		\textbf{\LARGE{Condensé de la MPSI}\\\Large{Mathématiques}}\\
+		\vfill
+		\large{Ewen Le Bihan\\MPSI -- Daudet}
+	\end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Processus de démonstration}
+\subsection{Processus élémentaires}
+\subsubsection{Quantification universelle $\forall$}
+\label{quantification_universelle}
+Soit $a \in E$
+
+\subsubsection{Quantification existentielle $\exists$}
+\label{quantification_existentielle}
+Posons $a = \ldots \in E$
+
+\subsubsection{Quantification existentielle unique $\exists!$}
+\paragraph{Existence}
+\emph{cf. \ref{quantification_existentielle}} 
+
+\paragraph{Unicité}
+Posons $b \in E$.
+\emph{Démonstration de $b = a$} 
+
+\subsubsection{Implication $P \implies Q$}
+\label{implication}
+Supposons $P(a)$. Montrons $Q(a)$
+
+\subsubsection{Équivalence $P \iff Q$}
+Procédons par double implication.
+
+$\implies$: \emph{Démonstration de $P \implies Q$} 
+
+$\impliedby$: \emph{Démonstration de $P \impliedby Q$} 
+
+\subsubsection{Inclusion $E \subset F$}
+\emph{Démontrer $\forall x \in \mathbb{E}, x \in E \implies x \in F$}.
+
+\subsubsection{Égalité ensembliste}
+Procédons par double inclusion.
+
+$\subset$: Démonstration de $E \subset F$
+
+$\supset$: Démonstration de $E \supset F$
+
+\subsubsection{Égalité entre applications}
+\emph{Démontrer $\forall x \in E,\ f(x) = g(x)$} 
+
+\subsection{Processus de démonstration}
+On commence chaque démonstration utilisant un de ces processus par << Procédons par \emph{nom du processus}  >> 
+
+\subsubsection{Récurrence}
+\emph{Pour montrer une propriété vraie dans $E \subseteq \N$} 
+
+\paragraph{Initialisation}
+\emph{Démontrer la propriété au premier rang} 
+
+\paragraph{Hérédité}
+Démontrer $\forall n \in E, P(n) \implies P(n+1)$
+
+\paragraph{Conclusion}
+La propriété étant initialisée et héréditaire, elle est vraie pour tout $n \in E$.
+
+\subsubsection{Contraposée}
+\emph{Pour montrer $P \implies Q$ quand l'implication directe est trop compliquée}
+
+\emph{Démontrer $\lnot Q \implies \lnot P$} 
+
+\subsubsection{l'Absurde}
+
+\emph{Pour montrer $P$} 
+
+Supposons $\lnot P$
+
+$\vdots$
+
+On obtient une contradiction.
+
+On a donc $P$
+
+\subsubsection{Disjonction des cas}
+
+\paragraph{1er cas: \ldots} \ldots
+
+\paragraph{2ème cas: \ldots} \ldots
+
+$\vdots$
+
+\paragraph{$n$-ième cas: \ldots} \ldots
+
+\paragraph{Conclusion}
+\ldots
+
+\subsubsection{Analyse-Synthèse}
+\emph{Pour trouver les solutions d'une équation, inéquation, \ldots}
+
+\paragraph{Analyse}
+Soit $a \in E$. Supposons $P(a)$.
+
+\emph{Réduire le nombre de candidats possibles pour $a$} 
+
+\paragraph{Synthèse}
+Testons nos candidats
+
+\paragraph{Conclusion}
+Les solutions sont \ldots
+
+\newpage
+\section{Dérivation}
+\emph{Attention aux hypothèses!} 
+\subsection{Nombre dérivé en un point}
+\[
+	f'(a) = \lim_{x \to a} \frac{f(x)-f(a)}{x-a}
+\] 
+
+\subsection{Dérivée de $f$}
+\[
+	f' = \begin{cases}
+		I\to \R \\
+		a \mapsto f'(a)
+	\end{cases}
+\] 
+
+\subsection{Dérivée usuelles}
+\begin{itemize}
+	\item $\forall n \in \N,\quad  (\text{id}^n)' = n \text{id}^{n-1}$
+	\item $\forall n \in \N,\quad \sqrt[n]{\;}' = \frac{1}{n\sqrt[n]{\;} }  $ 
+	\item $\ln' = \frac{1}{\text{id}}$
+	\item $\exp'=\exp$
+	\item $(a^\text{id})' = x\mapsto \ln(a)a^x$
+	\item $ \sin' = \cos $ 
+	\item $\cos' = -\sin$
+	\item $\tan' = \frac{1}{\cos^2} = 1 + \tan^2$
+	\item $ \sh' = \ch $
+	\item $ \ch' = \sh$
+	\item $\th' = \frac{1}{\ch^2} = 1 + \th^2$
+	\item $\text{acos}' = \frac{-1}{\sqrt{1-\id^2} }$
+	\item $\text{asin}' = \frac{1}{\sqrt{1-\id^2} }$
+	\item $\text{atan}' = \frac{1}{1 + \id^2}$
+\end{itemize}
+
+\subsection{Dérivées de composées}
+\begin{itemize}
+	\item $\forall (\lambda, \mu) \in \R^2,\quad (\lambda u + \mu v)' = \lambda u' + \mu v'$
+	\item $(uv)' = u'v+v'u$
+	\item $(\frac{1}{v})' = \frac{-v'}{v^2}$
+	\item $(\frac{u}{v})' = \frac{u'v-v'u}{v^2}$
+	\item $(u \circ v)' = v' \cdot  (u' \circ v)$
+	\item $(u^{-1})' = \frac{1}{u' \circ u^{-1}}$
+\end{itemize}
+
+\newpage
+\section{Trigonométrie}
+\subsection{Cercle trigonométrique ou unité $\mathcal C$}
+
+Cercle de centre $\point{0}{0}$ et de rayon $1$.
+
+\[
+	\mathcal C = \{ \point{x}{y} \in \R^2,\: x^2 + y^2 = 1 \} = \{ \point{\cos x}{\sin x},\: x \in \R \} 
+\] 
+
+\subsection{Congruence $\cdot \cong \cdot [\cdot]$}
+
+\[
+	a \cong b\ [t] \stackrel{\text{def}}{\iff} \exists k\in \Z,\ a = b + kt
+
+\] 
+\subsubsection{Propriétés}
+
+\begin{itemize}
+	\item $\forall a, b, c, d\in \R,\ \begin{cases}
+			a \cong b\ [t]\\
+			c \cong d\ [t]
+		\end{cases} \implies a + c \cong c + d\ [t]$
+	\item $\forall a, b, \lambda \in \R,\ a\cong b\ [t] \implies \lambda a \cong \lambda b\ [\lambda t] \ \et \begin{cases}
+			\lambda a \cong \lambda b\ [t] \\
+			\lambda \in \Z
+	\end{cases}$
+\item $ \cdot \cong \cdot \ [ \cdot ]$ est une relation d'équivalence
+\end{itemize}
+
+\subsection{cos, sin, tan, cotan}
+\begin{center}
+\begin{tikzpicture}[scale=4]
+	\draw (0, 0) circle (1);
+	\draw (-1.25, 0) -- (1.25, 0);
+	\draw (0, -1.25) -- (0, 1.25);
+	\draw (1, -1.25) -- (1, 1.25);
+	\draw (-1.25, 1) -- (1.732051, 1);
+	\coordinate (O) at (0, 0);
+	\draw (O) node[above, left, fill=white] {$O$};
+	\coordinate (M) at (0.8660254, 0.5);
+	\draw (M) node[above, fill=white] {$M$};
+	\coordinate (I) at (1, 0);
+	\coordinate (J) at (0, 1);
+	\draw (I) node[right, fill=white]{$I$};
+	\draw (J) node[above, fill=white]{$J$};
+	\draw (O) -- (M);
+	\draw (M) -- (1, 0.5773503) node[right, fill=white]{$\tan \theta$};
+	\draw (M) -- (0.8660254, 0) node[below, fill=white]{$\cos \theta$};
+	\draw (M) -- (0, 0.5) node[left, fill=white]{$\sin \theta$};
+	\draw (M) -- (1.732051, 1) node[below]{$\cotan \theta$};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Théorème de Pythagore}
+\[
+	\cos^2 + \sin^2 = 1
+\] 
+
+\subsubsection{Théorème de Thalès}
+
+\begin{align*}
+	\tan = \frac{\sin}{\cos} \qquad \cotan = \frac{\cos}{\sin}
+\end{align*}
+
+\emph{Ce qui permet de trouver $\mathcal{D}_\tan$ et $\mathcal{D}_\cotan$} 
+
+\subsubsection{Propriétés}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lllll}
+		 & périodicité & positif sur \footnote{ajouter $+\text{périodicité}$ aux bornes}& parité & domaine de définition \\\hline
+		$\cos$ & $2\pi$ &  $[-\frac{\pi}{2} , \frac{\pi}{2} ]$ & paire & $\R$ \\
+		$ \sin$ & $2\pi$ &  $[0 , \pi ]$ & impaire & $\R$ \\
+		$\tan$ & $\pi$ &  $[0, \frac{\pi}{2}[$ & impaire & $\bigcup_{k \in \Z} ]-\frac{\pi}{2}+k\pi, \frac{\pi}{2}+k\pi[$ \\
+		$\cotan$ & $\pi$  & $]0, \frac{\pi}{2}] \cup [-\frac{\pi}{2}, \pi[$ & impaire & $\bigcup_{k \in \Z} ]k\pi, \pi+k\pi[$
+	
+	\end{tabular}
+	\caption{Propriétés des quatres fonctions trigonométriques}
+	\label{tab:proprietes_quatres_fonctions_trigonométriques}
+\end{table}
+
+%TODO: valeurs remarquables
+%TODO: formulaire
+
+\subsubsection{Limite de $ \frac{\sin}{\id}$ en $0$}
+
+\[
+	\frac{\sin x}{x} \xrightarrow[{x\to 0}]{}  1
+\] 
+\subsection{acos, asin, atan}
+
+\[
+	\begin{cases}
+		\forall x \in [-1, 1],\ &\exists! y \in [0, \pi],\ \cos y = x\\
+		\forall x \in [-1, 1],\ &\exists! y\in [-\frac{\pi}{2}, \frac{\pi}{2}],\ \sin y = x \\
+		\forall x \in \R,\ &\exists! y\in\ ]\!-\!\frac{\pi}{2}, \frac{\pi}{2}[,\ \tan y = x
+	\end{cases}
+\] 
+
+\subsection{Équations trigonométriques}
+\[
+	\begin{cases}
+		\cos x = a &\iff
+			\begin{cases}
+				a \in \{\operatorname{acos} a + 2k\pi,\ k \in \Z\}
+					\cup \{\operatorname{acos} a + 2k\pi,\ k\in \Z\}
+					& \text{si}\  a \in [-1, 1]\ \\
+				\emptyset & \text{sinon}
+			\end{cases}\\
+		\sin x = a &\iff \begin{cases}
+				a \in \{\operatorname{asin} a + 2k\pi,\ k\in \Z\}
+				\cup \{\pi - \operatorname{asin} a + 2k\pi,\ k\in \Z\}
+				& \text{si}\ a \in [-1, 1] \\
+			\emptyset & \text{sinon}
+		\end{cases} \\
+		\tan x = a &\iff a \in \{\operatorname{atan} a + k\pi, k \in \Z\} 
+	\end{cases}
+\] 
+
+\subsection{Amplitude $C$ \& déphasage $\phi$}
+
+\[
+	\forall A, B \in \R,\ \exists C, \phi \in \R,\ \forall x \in \R,\ A\cos x + B \sin x = C \cos(x-\phi) \\
+\] 
+
+\[
+	
+	\begin{cases}
+		C > 0 \implies &\text{$C$ est l'amplitude} \\
+					   &\text{$\phi$ est le déphasage}
+	\end{cases}
+\] 
+\subsection{Identités remarquables}
+\begin{itemize}
+	\item $\forall x \in [-1, 1],\ \operatorname{acos} x + \operatorname{asin} x = \frac{\pi}{2}$
+	\item $\forall x \in \R^\ast,\ \operatorname{atan} x + \operatorname{atan} \frac{1}{x} = \frac{\pi}{2}$
+\end{itemize}
+
+
+\newpage
+\section{Logique}
+
+\subsection{Table de vérité}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ccc|c}
+	Variable 1 & $\cdots$ & Variable $n$ & Formule \\\hline
+	$v$ & $\cdots$ & $v$ & $\ldots$ \\
+	$\vdots$ & ($2^n$ lignes) & & $\ldots$\\
+	$f$ & $\cdots$ & $f$ & $\ldots$
+	\end{tabular}
+	\caption{Table de vérité pour une formule à $n$ variables}
+	\label{tab:table_verité_cas_général}
+\end{table}
+
+\subsection{Connecteurs $\land$ $\lor$ $\lnot$, relations $\implies$ $\iff$}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cc|cccc}
+	$P$ & $Q$ & $P\land Q$ & $P \lor Q$ & $P \implies Q$ & $P \iff Q$ \\\hline
+	$v$ & $v$ & $v$ & $v$ & $v$ & $v$ \\
+	$v$ & $f$ & $f$ & $v$ & $f$ & $f$ \\
+	$f$ & $v$ & $f$ & $v$ & $v$ & $f$ \\
+	$f$ & $f$ & $f$ & $f$ & $v$ & $v$ \\
+	\end{tabular}
+	\caption{Table de vérité pour $\land$, $\lor$, $\implies$ et $\iff$}
+	\label{tab:table_vérité_et_ou_implication_équivalence}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c}
+	$P$ & $\lnot P$ \\\hline
+	$v$ & $f$ \\
+	$f$ & $v$
+	\end{tabular}
+	\caption{Table de vérité pour $\lnot$}
+	\label{tab:table_vérité_non}
+\end{table}
+
+\subsection{Égalité sémantique}
+
+$(P = Q) \iff \text{$P$ a la même table de vérité que $Q$}$
+
+\subsection{Propriétés des connecteurs $\land$ $\lor$ $\lnot$}
+
+\newcommand{\landor}{\stackrel{\land}{\lor}}
+\newcommand{\lorand}{\stackrel{\lor}{\land}}
+
+\emph{Pour $\lor$ et $\land$} 
+\begin{description}
+	\item[Idempotence] $P \landor P = P$
+	\item[Commutativité] $P \landor Q = Q \landor P$
+	\item[Associativité] $P \landor (Q \landor R) = (P \landor Q) \landor R$
+	\item[Distributivités] $P \lorand (Q \landor R) = (P \landor Q) \lorand (P \landor R)$
+\end{description}
+
+\emph{Pour $\lnot$}
+\begin{description}
+	\item[Involutivité] $\lnot \lnot P = P$
+\end{description}
+
+\subsection{Quantification existentielle unique $\exists!$}
+
+\[
+	[\exists! x \in E,\ P(x)] = [\underbrace{
+			\exists x \in E,\ P(x)}_{\text{existence}} \land \underbrace{
+			\forall \gamma_1, \gamma_2 \in E,\ P(\gamma_1) \land P(\gamma_2) \implies \gamma_1 = \gamma_2
+	}_{\text{unicité}}]
+\] 
+
+\subsection{Négation $\lnot$}
+
+\newcommand{\forallexists}{\stackrel{\forall}{\exists}}
+\newcommand{\existsforall}{\stackrel{\exists}{\forall}}
+
+\subsubsection{Négation de quantificateurs $\exists$, $\forall$}
+
+\[
+	\lnot(\forallexists x \in E,\ P(x)) = \existsforall x \in E,\ \lnot P(x)
+\] 
+
+
+\subsubsection{Négation de connecteurs ou lois de De Morgan}
+
+\[
+	\lnot(P \lorand Q) = \lnot P \landor \lnot Q
+\] 
+
+\subsubsection{Identités}
+\begin{itemize}
+	\item $P \land \lnot P = f$
+	\item $P \lor \lnot P = v$
+\end{itemize}
+
+\subsection{Formules}
+
+\begin{itemize}
+	\item $P \implies Q = \lnot P \lor Q$
+	\item $[\forall x \in \emptyset, P(x)] = v$
+	\item $[\exists x \in \emptyset, P(x)] = f$
+\end{itemize}
+
+\newpage
+\section{Équations différentielles}
+
+\subsection{Recherche de la solution particulière $y_p$}
+
+
+\begin{enumerate}
+	\item Identifier la forme du second membre
+	\item Exprimer $y_p$ avec des constantes inconnues
+	\item Développer $y' + ay = \ldots$ avec $y = y_p$
+	\item Trouver les constantes inconnues
+	\item Exprimer $y_p$
+\end{enumerate}
+
+\subsubsection{Forme du second membre}
+
+\begin{itemize}
+	\item Combinaisaon linéaire $at+b$
+	\item Constante $k$ \footnote{Ici l'expression de $y_p$ devient évidente: $y_p = t\mapsto \frac{k}{a}$}
+	\item Polynôme du second degré $at^2+bt+c$
+	\item Exponentielle $ke^{\gamma t}$
+	\item "Trigonométrique" $\alpha \cos(\omega t) + \beta \sin(\omega t)$
+\end{itemize}
+
+
+\subsubsection{Second membre nul}
+
+Second membre $= 0 \implies \begin{cases}
+	\text{équation dite homogène} \\
+	y_p = t\mapsto 0
+\end{cases}$
+
+
+\subsection{Premier ordre $y' + ay$}
+
+\[
+	\{t\mapsto ke^{-at} + y_p(t),\ k\in \R\} 
+\] 
+
+\subsection{Second ordre $ay'' + by' + cy$}
+
+\paragraph{Équation caractéristique} $ar^2 + br + c$
+
+\paragraph{Forme des solutions selon $\Delta$}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|c|c}
+	$\Delta > 0$ & $\Delta = 0$ & $\Delta < 0$ \\\hline
+$Ae^{r_1t}+Be^{r_2t}$ & $(At+B)e^{r_0t}$ & $e^{\re(r_1)t}(A \cos(\im(r_1)t) + B \sin(\im(r_1)t))$
+	\end{tabular}
+	\caption{Forme des solutions d'une équadiff homogène du second ordre selon le signe de $\Delta$}
+	\label{tab:solutions_equadiff_selon_signe_Delta}
+\end{table}
+
+\paragraph{Ensemble des solutions}
+
+\[
+	\{t\mapsto \text{forme des solutions},\ (A, B)\in \R^2\} 
+\] 
+
+\subsection{Problème de Cauchy}
+
+\[
+	\begin{cases}
+		y' + ay &= k \\
+		y'(b) &= c \\
+	\end{cases}\quad\text{(premier ordre)}
+	\qquad
+	\begin{cases}
+		ay'' + by' + cy &= k \\
+		y''(\alpha) &= \beta \\
+		y'(\gamma) &= \delta \\
+	\end{cases}\quad\text{(second ordre)}
+\] 
+
+\begin{enumerate}
+	\item Résoudre l'équadiff
+	\item Résoudre l'équation ou le système en remplaçant $y$ par la forme des solutions
+\end{enumerate}
+
+\newpage
+\section{Exponentielle imaginaire}
+
+\subsection{Décomposition des fonctions à valeurs complexes $f = f_1+if_2$}
+Soit $I \subseteq \R$
+\[
+	\forall f\in \C^I,\ \exists f_1, f_2 \in \R^I,\ f = f_1+if_2
+\] 
+
+\subsection{Relation fonctionnelle}
+
+\begin{itemize}
+	\item $\forall \theta_1, \theta_2 \in \R,\ e^{i(\theta_1+\theta_2)} = e^{i\theta_1} e^{i\theta_2}$
+	\item $\forall \theta\in \R,\ e^{-i\theta} = \frac{1}{e^{i\theta}}$
+\end{itemize}
+
+\subsection{Euler}
+
+\[
+	\forall \theta\in \R,\ \cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}\ \text{et}\ \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}
+\] 
+
+
+\subsection{De Moivre}
+\[
+	\forall \theta\in \R,\ \forall n \in \Z,\ e^{in\theta} = (e^{i\theta})^n
+\] 
+
+\subsection{Linéarisation $\cos^n(\theta) = \sum \frac{?}{?} \cos(?\theta)$}
+
+\emph{On cherche à linéariser $\cos^3$} 
+
+\begin{enumerate}
+	\item Euler \\
+		$= \left( \frac{e^{i\theta}+e^{-i\theta}}{2} \right)^3$
+	\item Binôme de newton \\
+		$= 1\left( \frac{e^i{\theta}}{2} \right)^0\left( \frac{e^{-i\theta}}{2} \right)^3 + 3\left( \frac{e^{i\theta}}{2} \right)^1 \left( \frac{e^{-i\theta}}{2} \right)^2 + 3\left( \frac{e^i{\theta}}{2} \right)^2\left( \frac{e^{-i\theta}}{2} \right)^1 + 1\left( \frac{e^{i\theta}}{2} \right)^3 \left( \frac{e^{-i\theta}}{2} \right)^0$
+	\item Moivre \\
+		$= \dfrac{e^{-3i\theta}}{2^3} + 3\dfrac{e^{i\theta}}{2}\dfrac{e^{-2i\theta}}{2^2}+ 3\dfrac{e^{2i\theta}}{2^2}\dfrac{e^{-i\theta}}{2} + \dfrac{e^{3i\theta}}{2^3}$ \\
+		$= \dfrac{1}{2^2}\dfrac{e^{3i\theta} + e^{-3i\theta}}{2} + \dfrac{3}{2^2}\dfrac{e^{i\theta} + e^{-i\theta}}{2}$
+	\item Euler (réciproque) \\
+		$= \frac{1}{4}\cos(3\theta) + \frac{3}{4}\cos(\theta)$
+\end{enumerate}
+
+\subsection{Arc-moitié $e^{i\ldots} + e^{i\ldots} = e^{\ldots}(e^{\ldots} + e^{\ldots})$}
+
+\[
+	\forall \theta_1, \theta_2 \in \R,\ e^{i\theta_1}+e^{i\theta_2} = e^{i\frac{\theta_1+\theta_2}{2}}(e^{i\frac{\theta_1-\theta_2}{2}}+e^{i\frac{\theta_2-\theta_1}{2}})
+\] 
+
+\subsection{Forme exponentielle $re^{i\theta}$}
+\[
+	\forall z\in \C^{\ast},\ z = |z|\exp(i\arg z)
+\] 
+\subsubsection{Égalité}
+\[
+	\forall z_1, z_2 \in \C_+^{\ast},\ z_1 = z_2 \iff \begin{cases}
+		|z_1| &= |z_2| \\
+		\arg z_1 &\cong \arg z_2\ [2\pi] \\
+	\end{cases}
+\] 
+
+\subsection{Propriétés de $\arg$}
+
+\emph{Identiques à celle de $\ln$, mais avec $[2\pi]$ et $\C^{\ast}$ à la place de $\R_+^\ast$} 
+
+\subsection{Racines $n$-ième de l'unité $\U_n$}
+
+\[
+	\U_n &= \{\omega\in \C,\ \omega^{n} = 1\} = \{e^{\frac{2ik\pi}{n}},\ k\in \llbracket 0, n-1 \rrbracket \} 
+\] 
+\subsection{Résolution de $z^{n} = c$}
+
+\[
+	\forall c \in \C_+^{\ast},\ \forall n\in \N^{\ast},\ \{ z \in \C,\ z^n = c \} = \left\{ \sqrt[n]{|c|}\exp\left(i\frac{\arg c + 2k\pi}{n}\right),\ k \in \llbracket 0, n-1 \rrbracket \right\} 
+\] 
+\subsection{Dérivée d'une exponentielle complexe}
+
+\[
+	\forall \phi \in \C^{I},\ (\exp\circ\phi)' = \phi' \cdot \exp\circ\phi
+\] 
+
+
+\end{document}
+

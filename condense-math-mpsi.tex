@@ -25,6 +25,9 @@
 \newcommand{\Z}{{\mathbb Z}}
 \newcommand{\Q}{{\mathbb Q}}
 \renewcommand{\U}{{\mathbb U}}
+\newcommand{\cC}{{\mathcal C}}
+\newcommand{\cD}{{\mathcal D}}
+\newcommand{\cF}{{\mathcal F}}
 \newcommand{\cotan}{\operatorname{cotan}}
 \newcommand{\conj}[1]{\overline{#1}}
 \newcommand{\Aff}{\text{Aff}}
@@ -51,6 +54,8 @@
 \renewcommand{\th}{\operatorname{th}}
 \newcommand{\id}{\operatorname{id}}
 \renewcommand{\cong}{\equiv}
+\newcommand{\converges}[2]{\xrightarrow[{#1\to #2}]{}}
+\newcommand{\convergedby}[2]{\xleftarrow[{#1\to #2}]{}}
 
 % Document
 \begin{document}
@@ -586,7 +591,7 @@ Soit $I \subseteq \R$
 		$= \frac{1}{4}\cos(3\theta) + \frac{3}{4}\cos(\theta)$
 \end{enumerate}
 
-\subsection{Arc-moitié $e^{i\ldots} + e^{i\ldots} = e^{\ldots}(e^{\ldots} + e^{\ldots})$}
+\subsection{Arc-moitié $e^{i\ldots} + e^{i\ldots} = e^{i\ldots}(e^{i\ldots} + e^{i\ldots})$}
 
 \[
 	\forall \theta_1, \theta_2 \in \R,\ e^{i\theta_1}+e^{i\theta_2} = e^{i\frac{\theta_1+\theta_2}{2}}(e^{i\frac{\theta_1-\theta_2}{2}}+e^{i\frac{\theta_2-\theta_1}{2}})
@@ -618,12 +623,107 @@ Soit $I \subseteq \R$
 \[
 	\forall c \in \C_+^{\ast},\ \forall n\in \N^{\ast},\ \{ z \in \C,\ z^n = c \} = \left\{ \sqrt[n]{|c|}\exp\left(i\frac{\arg c + 2k\pi}{n}\right),\ k \in \llbracket 0, n-1 \rrbracket \right\} 
 \] 
-\subsection{Dérivée d'une exponentielle complexe}
+\subsection{Résolution de $e^z = c$}
+
+Soit $c\in \C$
 
 \[
-	\forall \phi \in \C^{I},\ (\exp\circ\phi)' = \phi' \cdot \exp\circ\phi
+	\{ z \in \C,\ e^z = c \} = \begin{cases}
+		\emptyset &\ \text{si}\  c = 0\\ 
+		?\footnotemark & \ \text{sinon}
+	\end{cases}
 \] 
 
+\footnotetext{Trouver module et argument}
+
+
+\subsection{Module de l'exponentielle imaginaire}
+
+\[
+\forall z \in \C,\ |e^z| = e^{\re z}
+\] 
+
+\emph{Le reste des propriétés de $\exp:\C\to \C$ sont identiques à celles de $\exp:\R\to \R$} 
+
+\newpage
+\section{Intégration $\int$}
+
+\emph{Pour les théorèmes de primitivation, on enlève les bornes, on rajoute $+ \R$ à l'expression de la primitive et on update les quantificateurs si besoin} 
+
+\subsection{Théorème fondamental de l'analyse, version renversée}
+
+\[
+	\forall f \in \cC([a, b], \R),\ \forall F \in \cD([a, b], \R),\ F' = f \implies
+	\int_a^b f = [F]_a^b
+\] 
+
+\subsection{Théorème fondamental de l'analyse}
+
+\[
+	\forall f \in \cC([a, b], \R), \forall \alpha \in [a, b],\ 
+	\exists! F \in \cD([a, b], \R),\ \begin{cases}
+		F' &= f \\
+		F(\alpha) &= 0 \\
+	\end{cases}\ \text{et}\ F = x\mapsto \int_\alpha^x f
+\] 
+
+\subsection{Croissance}
+
+\[
+	\forall f, g \in \cC([a, b], \R),\ \forall \kappa \in [a, b],\ f(\kappa) \le g(\kappa) \implies \int_a^b f \le \int_a^b g
+\] 
+
+\subsection{Inégalité triangulaire}
+
+\[
+	\forall a<b \in \R,\ \left| \int_a^b f \right| = \int_a^b |f|
+\] 
+
+\subsection{Intégration par parties}
+
+\[
+	\forall u, v \in \cC^1(I, J),\ \forall a, b \in I,\ 
+	\int_a^b uv' = [uv]_a^b - \int_a^b u'v
+\] 
+
+\subsection{Intégration par identification de motif}
+
+\[
+	\forall \phi \in \cC^1([a, b], I),\ \forall F \in \cC^1(I, \R),\ 
+	\int_a^b F' \circ \phi = [F\circ \phi]_a^b = [F]_{\phi(a)}^{\phi(b)}
+\] 
+\subsection{Intégration par changement de variables}
+
+\subsubsection{Normal}
+
+
+\[
+	\forall \phi \in \cC^1([a, b], I),\ \forall f \in \cC(I, \R),\ 
+	\int_{\phi(a)}^{\phi(b)} f = \int_a^b f \circ \phi \cdot \phi'
+\] 
+
+\subsubsection{Bijectif}
+
+\[
+	\forall \phi\in \cC^1(I, J),\ \forall f \in \cC(J, \R),\ \forall a, b \in J,\ \text{$\phi$ a une réciproque $\phi^{-1}$} \implies
+	\int_a^b f = \int_{\phi^{-1}(a)}^{\phi^{-1}(b)} f \circ \phi \cdot \phi'
+\] 
+
+\subsubsection{Primitivation}
+
+\[
+\forall \phi\in \cC^1(I, J),\ 	\forall f\in \cC(J, \R), \text{$\phi$ a une réciproque $\phi^{-1}$} \implies \int f = \phi^{-1} \circ \left(\int f\circ \phi \cdot \phi'\right)
+\] 
+
+\subsection{Sommes de Riemann}
+
+\[
+	\forall f\in \cC([a, b], \R), \forall n \in \N^\ast,\ 
+	\int_a^b f\convergedby{n}{\infty} \begin{cases}
+		S_n &= {\displaystyle \frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a+k\frac{b-a}{n}\right)} \\
+	R_n &= {\displaystyle \frac{b-a}{n} \sum_{k=1}^{n} f\left(a+k\frac{b-a}{n}\right) }
+	\end{cases}
+\] 
 
 \end{document}
 

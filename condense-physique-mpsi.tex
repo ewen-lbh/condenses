@@ -10,11 +10,12 @@
 \usepackage{soul}
 
 % Packages configuration
-\usetikzlibrary{shapes.arrows, angles, quotes}
 \renewcommand{\arraystretch}{1.4}
 
 % Shortuct commands
 \newcommand{\R}{\mathbb{R}}
+\renewcommand{\d}{\operatorname{d}}
+\renewcommand{\vec}{\overrightarrow}
 \newcommand{\const}{\text{const}}
 
 % Document
@@ -34,14 +35,115 @@
 \tableofcontents
 \newpage
 
-\section{Circuits}
-\subsection{Concention récepteur/générateur}
-\begin{circuitikz}
-	\draw (-1, 0)
-		to[short, i=$I$]
-		to[generic]
-	(1, 0);
-	\draw[<-] (-0.25, -0.5) -- (0.75, -0.5);
-\end{circuitikz}
+
+\section{Approche cinématique du mouvement d'un point}
+\subsection{Travail d'une force}
+\[
+	\delta W = \vec{\text{la force}} \cdot \d\vec{OM}
+\] 
+
+\[
+	\d\vec{OM} = \vec v  \cdot \d t
+\] 
+
+\begin{align*}
+	\delta W > 0 &\implies \text{travail moteur} \\
+	\delta W < 0 &\implies \text{travail résistant}
+\end{align*}
+
+\[
+	W_{AB}(\vec F) = \int_A^B \delta W \d t = \int_A^B \vec F \cdot \d\vec{OM}
+\] 
+
+\[
+	\dot{\vec{F}} = \vec 0 \implies W_{AB}(\vec F) = \vec F \cdot \vec{AB}
+\] 
+
+\[
+	W(\vec{R_n}) = 0
+\]
+
+\subsection{Puissance d'une force}
+
+\[
+	\mathcal{P}(\vec F) = \vec F  \cdot  \vec v 
+\] 
+\subsection{Énergie cinétique}
+\[
+	E_c(M/\mathcal{R}) = \frac{1}{2}mv(M/\mathcal{R})^2
+\] 
+
+\subsubsection{Théorème de l'énergie cinétique}
+
+\begin{itemize}
+	\item $\mathcal{R}\ \text{galiléen} \implies \dot E_c(M/\mathcal R)$
+	\item $\underset{i\to f}{\Delta}E_c = \underset{i\to f}{W}(\vec F)$
+\end{itemize}	
+
+\subsubsection{Pendule}
+\[
+	\ddot\theta + \frac{g}{l} \sin\theta = 0
+\] 
+
+\subsection{Énergie potentielle}
+
+
+\[
+	E_{p_p} = mgz + \text{const}\quad\text{si $(Oz)$ vertical ascendant}
+\] 
+
+\[
+	E_{p_e} = \frac{1}{2}k(x-l_0)^2+\text{const}
+\] 
+
+\subsubsection{Stabilité d'un équilibre}
+
+$x_e := \operatorname{extremum}(E_p, x)$ (i.e. $x_e$ est une position d'équilibre)
+
+\begin{align*}
+	-(x-x_e)\frac{\d^2 {E_p}}{\d x^2}(x_e)\quad \begin{cases}
+		> 0 &\implies \text{stable} \\
+		< 0 &\implies \text{instable}
+	\end{cases}
+\end{align*}
+
+\subsection{Force conservative}
+\[
+	\vec F\ \text{conservative} \iff \begin{cases}
+		W(\vec F)\ &\text{indépendante du chemin suivi} \\
+		\vec F &= F(x)\d x \\
+		\exists E_p \ &\text{/}\ \begin{cases}
+			W(\vec F) &= -\Delta E_p \\
+			\delta W &= -\d E_p
+		\end{cases} \\
+	\end{cases}
+\] 
+
+Contraire: force dissipative ou non-conservative
+
+
+
+\subsection{Énergie mécanique}
+
+En référentiel Galiléen
+\[
+	\Delta E_m = W(\vec{F_{\text{dissipative}}})
+\] 
+\subsubsection{Interprétations}
+
+\begin{align*}
+	\Delta E_m &= 0 \\
+	\iff E_m &= \text{const} \\
+	\iff E_m\ &\text{se conserve} \\
+	\iff M\ &\text{est conservatif}
+\end{align*}
+
+\begin{align*}
+	\Delta E_m &= W(\vec{F_{\text{dissipative}}}) < 0 \\
+	\implies &E_m\ \text{décroissante} \\
+	\implies &\text{Il y a {\bf dissipation} de l'énergie}
+\end{align*}
+
+
 
 \end{document}

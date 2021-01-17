@@ -5,8 +5,9 @@
 \usepackage[bookmarks, hidelinks, unicode]{hyperref}
 \usepackage{amsmath, amssymb}
 \usepackage{tikz}
-\usepackage{circuitikz}
+% \usepackage{circuitikz}
 \usepackage{lmodern}
+\usepackage{nicefrac}
 \usepackage{soul}
 
 % Packages configuration
@@ -87,11 +88,12 @@
 
 \subsection{Énergie potentielle}
 
-
+\[
+	\Delta E_p := -\underset{A\to B}{W}(\vec F)
+\] 
 \[
 	E_{p_p} = mgz + \text{const}\quad\text{si $(Oz)$ vertical ascendant}
 \] 
-
 \[
 	E_{p_e} = \frac{1}{2}k(x-l_0)^2+\text{const}
 \] 
@@ -144,6 +146,78 @@ En référentiel Galiléen
 	\implies &\text{Il y a {\bf dissipation} de l'énergie}
 \end{align*}
 
+\newpage
+\section{Dynamique}
+\subsection{Force gravitationelle}
 
+\[
+	\vec{F_{M\to M'}} = -G \frac{mm'}{r^2}\vec u
+\] 
+
+\subsection{Force de rappel d'un ressort}
+\[
+	\vec F = -k(l(t)-l_0)\vec{u_{\text{etirement}}}
+\] 
+
+\subsection{Tension d'un fil $\vec T$}
+
+Aucune formule caractéristique :/
+
+\subsubsection{Pendule}
+
+En repère cylindrique
+\[
+	\vec T = -T\vec{u_r}
+\] 
+
+\subsection{Frottements solides $\vec R$}
+
+\begin{align*}
+	\vec{{{R}_{{n}}}}&\text{/} \begin{cases}
+		\operatorname{sens}{\vec{{{R}_{{n}}}}} &= -\text{sens}{\vec{P}} \\
+		{\left|{\left|\vec{{{R}_{{n}}}}\right|}\right|} &= {\left|{\left|\vec{{P}}\right|}\right|}
+	\end{cases}\\
+		\vec{R_t} &\text{/} \begin{cases}
+		\vec{R_t} &\perp \vec{R_n} \\
+		\operatorname{sens}{\vec{R_t}} &= -\operatorname{sens}{\vec{v}} \\
+	\end{cases} \\
+	\vec{R} &:= \vec{R_t} + \vec{R_n}
+\end{align*}
+
+
+\begin{itemize}
+	\item Sans frottements solides \\
+		$\vec{R_t} = \vec{0} \iff \vec{R} = \vec{R_n}$
+	\item Avec frottements solides \\
+		$\vec{R_t} \neq \vec 0$
+		\begin{itemize}
+			\item Sans glissement \emph{(i.e. $M$ est immobile)}:
+				\begin{align*}
+				\vec{R_n} + \vec{R_t} + \vec{P} &= \vec 0 \\
+				\nicefrac{R_t}{R_n} &< f
+				\end{align*}
+			\item Avec glissement
+				\begin{align*}
+				\vec{R_n} + \vec{R_t} + \vec{P} &\neq \vec 0 \\
+				\nicefrac{R_t}{R_n} &> f
+				\end{align*}
+		\end{itemize}
+\end{itemize}
+
+\subsection{Frottements fluides}
+
+\[
+	\vec{f} = -\lambda \vec{v}
+\] 
+
+\[
+	\vec{f} = -\alpha v^2 \frac{\vec{v}}{||\vec{v}||}
+\] 
+\subsection{Lois de Newton}
+\begin{enumerate}
+	\item Il existe des référentiels dits "Galiléens" dans lesquels une particule pseudo-isolée ou isolée a un MRU. Si la particule est initialement au repos, elle le reste.
+	\item $\vec{F} = m\dot{\vec{p}} = m \frac{\d}{\d t}(m \vec{v})$ 
+	\item $\vec{F}_{A\to B} = -\vec{F}_{A\to B}$
+\end{enumerate}
 
 \end{document}

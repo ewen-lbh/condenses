@@ -43,13 +43,9 @@ Note that those "condensés" are in french and follow France's highschool & CPGE
 
 !["CPGE, first year, Physics"](../condense-physique-mpsi.pdf)
 
-## 12th grade
-
 !["12th grade, Mathematics"](../condense-math-terminale.pdf)
 
 !["12th grade, Physics"](../condense-physique-terminale.pdf)
-
-## 11th grade
 
 !["11th grade, Mathematics"](../condense-math-première.pdf)
 
